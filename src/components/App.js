@@ -65,7 +65,7 @@ class App extends Component {
     });
   }
 
-  findPost(text) { 
+  findPostFn(text) { 
     if (text) {
       axios.get(`https://practiceapi.devmountain.com/api/posts/filter?text=${text}`)
         .then(response => {
@@ -82,7 +82,7 @@ class App extends Component {
 
     return (
       <div className="App__parent">
-        <Header findPost = {this.findPost.bind(this)}/>
+        <Header findPostFn = {this.findPostFn.bind(this)}/>
 
         <section className="App__content">
           <Compose 

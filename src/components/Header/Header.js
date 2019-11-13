@@ -20,7 +20,7 @@ export default class Header extends Component {
 
           {/* Displays the search bar */}
           <div className="Header__right">
-          <Search findPost={this.props.findPost}/>
+          <Search findPostFn={this.props.findPostFn}/>
 
             {/* Displays the profile icon */}
             <div className="Header__profile">
