@@ -65,12 +65,24 @@ class App extends Component {
     });
   }
 
+  findPost(text) { 
+    if (text) {
+      axios.get(`https://practiceapi.devmountain.com/api/posts/filter?text=${text}`)
+        .then(response => {
+          this.setState({
+            posts: response.data
+          })
+        })
+    }
+  }
+
+
   render() {
     const { posts } = this.state;
 
     return (
       <div className="App__parent">
-        <Header />
+        <Header findPost = {this.findPost.bind(this)}/>
 
         <section className="App__content">
           <Compose 
