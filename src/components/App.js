@@ -47,47 +47,47 @@ class App extends Component {
       });
   }
 
-  deletePost( id ) {
+  deletePost(id) {
     axios
       .delete(`https://practiceapi.devmountain.com/api/posts/?id=${id}`)
       .then(response => {
-          this.setState({
+        this.setState({
           posts: this.state.posts.filter(post => post.id !== id)
         });
       });
   }
 
-  createPost( text ) {
+  createPost(text) {
     axios
-        .post('https://practiceapi.devmountain.com/api/posts', { text })
-        .then( results => {
-            this.setState({ posts: results.data });
-    });
+      .post("https://practiceapi.devmountain.com/api/posts", { text })
+      .then(results => {
+        this.setState({ posts: results.data });
+      });
   }
 
-  findPostFn(text) { 
+  findPostFn(text) {
     if (text) {
-      axios.get(`https://practiceapi.devmountain.com/api/posts/filter?text=${text}`)
+      axios
+        .get(
+          `https://practiceapi.devmountain.com/api/posts/filter?text=${text}`
+        )
         .then(response => {
           this.setState({
             posts: response.data
-          })
-        })
+          });
+        });
     }
   }
-
 
   render() {
     const { posts } = this.state;
 
     return (
       <div className="App__parent">
-        <Header findPostFn = {this.findPostFn.bind(this)}/>
+        <Header findPostFn={this.findPostFn.bind(this)} />
 
         <section className="App__content">
-          <Compose 
-            createPostFn={this.createPost} 
-          />
+          <Compose createPostFn={this.createPost} />
           {posts.map(post => (
             <Post
               key={post.id}

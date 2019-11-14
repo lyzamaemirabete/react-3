@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { MdPersonOutline } from 'react-icons/md';
+import React, { Component } from "react";
+import { MdPersonOutline } from "react-icons/md";
 
-import './Compose.css';
+import "./Compose.css";
 
 //////////////////////////////////////////////////////// THIS COMPONENT IS BEING RENDERED IN THE *APP* COMPONENT
 
@@ -10,7 +10,7 @@ export default class Compose extends Component {
     super();
 
     this.state = {
-      text: '',
+      text: ""
     };
 
     this.createPost = this.createPost.bind(this);
@@ -23,9 +23,9 @@ export default class Compose extends Component {
   createPost() {
     const { text } = this.state;
     const { createPostFn } = this.props;
-  
-    createPostFn( text );
-    this.setState({ text: '' });
+
+    createPostFn(text);
+    this.setState({ text: "" });
   }
 
   render() {
